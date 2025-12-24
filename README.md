@@ -1,52 +1,118 @@
-# Nexus
+# Sentiment Analysis Flask Application for Nexus Platform
 
-## Description
-Nexus is a comprehensive platform developed as part of my final year project in Computer Science. It serves as a supportive community for individuals dealing with mental disorders such as depression and stress. The platform allows users to share their thoughts publicly or anonymously and receive advice from other users or professional doctors. Nexus is designed with robust backend solutions using ASP.NET Core, adhering to Onion Architecture principles, clean code practices, and respecting the SOLID principles as much as possible.
+> This repository contains a **Flask-based Sentiment Analysis API** developed for the **Nexus mental health platform**. Nexus is a web application that enables users to interact through social forums, complete mental health assessments, and book appointments with mental health professionals. The platform also provides a dedicated space for doctors, where they can be booked by users, view forum discussions, and offer professional advice.
 
-## Features
 
-### Core Functionalities
-- **Community Support**: Users can share their thoughts and receive comments and advice from both other users and professional doctors.
-- **Anonymity**: Option to share thoughts anonymously for privacy.
+🔗 **Nexus Platform Repository**
+[https://github.com/AlaaEbrahim0/mental-mediator-api-graduation-project](https://github.com/AlaaEbrahim0/mental-mediator-api-graduation-project)
 
-### Machine Learning Integration
-- **Hate Speech and Offensive Language Detection**: Ensures a safe, respectful, and clean community.
-- **Depression Detection**: Helps in identifying signs of depression.
+---
 
-### Appointment System
-- **Doctor Scheduling**: Doctors can create their weekly schedules.
-- **Appointment Booking**: Users can book offline appointments with specific doctors in available slots.
-- **Confirmation/Rejection**: Doctors can confirm or reject appointments.
+## Project Overview
 
-### Notifications and Communication
-- **Mailing Service**: Integrated Google SMTP server for enhanced communication.
-- **Real-Time Notifications**: Implemented using SignalR.
+The API provides **sentiment and mental health analysis models** that are integrated into the Nexus website. These models support content moderation, emotional understanding, and mental health assessment through machine learning–based sentiment analysis.
 
-### Additional Features
-- **Image Storage**: Integrated Cloudinary API for storing images.
-- **News Integration**: Uses News API to fetch relevant articles for users and doctors.
-- **Unified API Response**: Developed using the Result Pattern.
-- **Token-Based Authentication**: Implemented JWT Bearer authentication with role-based access mechanisms.
-- **External Login Provider**: Integrated Google for external login.
-- **Insights**: Provides doctors and admins with insights about appointments, profits, depression test results, etc.
+The system includes **two main models**, each serving a different purpose within the platform.
 
-## Development and Deployment
-- **Entity Framework Core**: For optimized SQL queries and LINQ operations.
-- **Pagination and Filtering**: Implemented for efficient data retrieval.
-- **AutoMapper**: For efficient mapping between DTOs and entities.
-- **Database Seeding**: Used Bogus library for database seeding to facilitate testing.
-- **Containerization**: Application containerized using Docker for seamless deployment.
-- **CI/CD Pipeline**: Created using GitHub Actions to automate building, image building, image publishing, and deployment to the production server.
-- **Cloud Deployment**: API running on the cloud using Render.
+---
 
-## Technologies Used
-- **Backend**: ASP.NET Core 8, Entity Framework Core, SQL Server
-- **Containerization**: Docker
-- **CI/CD**: GitHub Actions
-- **Testing and Documentation**: Postman, Bogus
-- **Notifications**: SignalR
-- **Mailing**: MailKit/MimeKit, Google SMTP server
-- **Image Storage**: Cloudinary API
-- **News Integration**: News API
+## Models Description
 
-For any inquiries or feedback, please contact me at [alaaebrahim387@gmail.com].
+### 1. Hate Speech & Forum Sentiment Analysis Model
+
+* Used in **Nexus social forums**
+* Detects:
+
+  * Hate speech
+  * Toxic or harmful language
+  * Overall sentiment of user-generated posts
+* Helps maintain a **safe and supportive environment** for users
+
+![alt text](image.png)
+
+---
+
+### 2. Depression Sentiment Analysis Model
+
+This model is used in the **depression assessment feature** on the Nexus website.
+The assessment is divided into **three components**:
+
+1. **Beck’s Depression Inventory (BDI)**
+
+   * Standard psychological questionnaire for depression assessment
+
+2. **General Sentiment Analysis**
+
+   * Classifies user input into **positive** or **negative** sentiment
+
+3. **Custom Depression Detection Model**
+
+   * A machine learning model specifically trained to detect depression-related linguistic patterns
+
+#### Decision-Level Fusion
+
+The final depression assessment result is produced using **Decision-Level Fusion**, combining the outputs of:
+
+* Beck’s Depression Inventory
+* General sentiment analysis
+* Custom depression model
+
+This fusion approach improves **robustness and reliability** of the final prediction.
+
+![alt text](image-1.png)
+![alt text](image-2.png)
+![alt text](image-3.png)
+---
+
+## System Architecture
+
+* Flask REST API
+* Multiple ML models integrated into a unified inference pipeline
+* Decision-Level Fusion for mental health prediction
+* Deployed as a backend service for the Nexus platform
+
+*(Architecture diagram or screenshots can be added here)*
+
+---
+
+## Requirements
+
+* **Python 3.8 or later**
+
+---
+
+## Installation
+
+1. Clone the repository:
+
+```bash
+git clone <repository-url>
+cd <repository-name>
+```
+
+2. Install the required dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+---
+
+## Usage
+
+* Run the Flask application to start the API
+* The API endpoints are consumed by the Nexus website for:
+
+  * Forum content analysis
+  * Depression assessment and sentiment evaluation
+
+---
+
+## Contact
+
+For any inquiries, feedback, or collaboration opportunities, feel free to contact:
+
+📧 **Fares Saad**
+Email: [faresaad74@gmail.com](mailto:faresaad74@gmail.com) 
+
+
